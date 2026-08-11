@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>For Pari ❤️</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -19,13 +21,9 @@ html,body{
     width:100%;
     height:100%;
     overflow:hidden;
+    background:#050509;
     font-family:Georgia,serif;
-    background:#050510;
 }
-
-/* =========================
-   PAGES
-========================= */
 
 #app{
     width:100%;
@@ -34,260 +32,435 @@ html,body{
     overflow:hidden;
 }
 
+
+/* =================================================
+   PAGES
+================================================= */
+
 .page{
     position:absolute;
     inset:0;
+
     width:100%;
     height:100%;
+
     display:none;
-    flex-direction:column;
+
     justify-content:center;
     align-items:center;
+
     text-align:center;
-    padding:30px 24px;
+
+    padding:30px 25px;
+
     overflow:hidden;
+
     opacity:0;
-    transform:scale(.96);
 }
 
-/* FIRST PAGE */
+
+/* NEW PAGE */
+
 .page.active{
     display:flex;
-    animation:pageEnter 1.15s cubic-bezier(.22,1,.36,1) forwards;
+    animation:pageIn .55s cubic-bezier(.22,.8,.32,1) forwards;
 }
+
 
 /* OLD PAGE */
+
 .page.leaving{
     display:flex;
-    animation:pageLeave .75s ease-in forwards;
+    animation:pageOut .45s ease forwards;
 }
 
-@keyframes pageEnter{
+
+@keyframes pageIn{
+
     0%{
         opacity:0;
-        transform:scale(.92) translateY(35px);
-        filter:blur(12px);
-    }
-
-    40%{
-        opacity:.55;
-        filter:blur(5px);
-    }
-
-    75%{
-        opacity:.9;
-        transform:scale(.985) translateY(5px);
-        filter:blur(1px);
+        transform:translateX(28px) scale(.985);
     }
 
     100%{
         opacity:1;
-        transform:scale(1) translateY(0);
-        filter:blur(0);
+        transform:translateX(0) scale(1);
     }
+
 }
 
-@keyframes pageLeave{
+
+@keyframes pageOut{
+
     0%{
         opacity:1;
-        transform:scale(1) translateY(0);
-        filter:blur(0);
+        transform:translateX(0) scale(1);
     }
 
     100%{
         opacity:0;
-        transform:scale(1.07) translateY(-25px);
-        filter:blur(9px);
+        transform:translateX(-22px) scale(.99);
     }
+
 }
 
-/* =========================
+
+/* =================================================
    BACKGROUNDS
-========================= */
+================================================= */
 
 .p1{
-    background:
-    radial-gradient(circle at 50% 35%,#522b75 0%,transparent 35%),
-    linear-gradient(160deg,#09051b,#170b2e,#03030c);
+background:
+radial-gradient(circle at 50% 35%,#753b9b 0%,transparent 35%),
+linear-gradient(160deg,#070411,#1d0b30,#030308);
 }
 
 .p2{
-    background:
-    radial-gradient(circle at 20% 25%,#ff8d5c55,transparent 25%),
-    linear-gradient(160deg,#351b35,#743e48,#171020);
+background:
+radial-gradient(circle at 20% 25%,#ff9c6860,transparent 30%),
+linear-gradient(160deg,#32182f,#82464c,#120c19);
 }
 
 .p3{
-    background:
-    radial-gradient(circle at 50% 40%,#ffc76b55,transparent 25%),
-    linear-gradient(160deg,#080d24,#152951,#050713);
+background:
+radial-gradient(circle at 50% 40%,#ffd16a55,transparent 28%),
+linear-gradient(160deg,#070b20,#19315c,#040611);
 }
 
 .p4{
-    background:
-    radial-gradient(circle at 70% 30%,#b982ff55,transparent 30%),
-    linear-gradient(160deg,#160c2d,#39215d,#080612);
+background:
+radial-gradient(circle at 70% 30%,#c18aff55,transparent 30%),
+linear-gradient(160deg,#150a2a,#402263,#07050d);
 }
 
 .p5{
-    background:
-    radial-gradient(circle at 50% 40%,#ff78bd66,transparent 35%),
-    linear-gradient(160deg,#260b27,#7c315e,#17091b);
+background:
+radial-gradient(circle at 50% 40%,#ff75bb66,transparent 35%),
+linear-gradient(160deg,#260a27,#81335e,#12070f);
 }
 
 .p6{
-    background:
-    radial-gradient(circle at 30% 25%,#73d5ff55,transparent 30%),
-    linear-gradient(160deg,#071b2c,#174968,#07111d);
+background:
+radial-gradient(circle at 30% 25%,#75ddff55,transparent 30%),
+linear-gradient(160deg,#061b2b,#174a68,#050e18);
 }
 
 .p7{
-    background:
-    radial-gradient(circle at 50% 45%,#ff9fb955,transparent 30%),
-    linear-gradient(160deg,#220b19,#59223c,#10070d);
+background:
+radial-gradient(circle at 50% 45%,#ff9fba55,transparent 30%),
+linear-gradient(160deg,#210a18,#60233f,#0c060d);
 }
 
 .p8{
-    background:
-    radial-gradient(circle at 50% 50%,#ffd86b66,transparent 25%),
-    linear-gradient(160deg,#111126,#382a47,#070711);
+background:
+radial-gradient(circle at 50% 50%,#ffe06b60,transparent 27%),
+linear-gradient(160deg,#101023,#3b2b49,#06060d);
 }
 
 .p9{
-    background:
-    radial-gradient(circle at 50% 35%,#ffb25c77,transparent 35%),
-    linear-gradient(160deg,#35182a,#b04d3d,#24111c);
+background:
+radial-gradient(circle at 50% 35%,#ffb45c70,transparent 35%),
+linear-gradient(160deg,#351729,#b34f3f,#21101a);
 }
 
 .p10{
-    background:
-    radial-gradient(circle at 30% 35%,#9c8cff55,transparent 30%),
-    linear-gradient(160deg,#100b29,#30255c,#080613);
+background:
+radial-gradient(circle at 30% 35%,#a08cff55,transparent 30%),
+linear-gradient(160deg,#100a28,#31265e,#07050e);
 }
 
 .p11{
-    background:
-    radial-gradient(circle at 50% 45%,#ff5d9f77,transparent 35%),
-    linear-gradient(160deg,#24081c,#721f4e,#0d0610);
+background:
+radial-gradient(circle at 50% 45%,#ff5e9f70,transparent 35%),
+linear-gradient(160deg,#23071c,#74204f,#0c050e);
 }
 
 .p12{
-    background:
-    radial-gradient(circle at 50% 45%,#ff75b877,transparent 30%),
-    linear-gradient(160deg,#210719,#771d50,#10040b);
+background:
+radial-gradient(circle at 50% 45%,#ff76ba75,transparent 35%),
+linear-gradient(160deg,#210619,#781e50,#0d040a);
 }
 
-/* =========================
-   TEXT
-========================= */
+
+/* =================================================
+   CONTENT
+================================================= */
 
 .content{
     position:relative;
-    z-index:10;
-    max-width:420px;
-    animation:contentFloat 4s ease-in-out infinite;
+    z-index:20;
+
+    max-width:430px;
+
+    animation:contentFloat 4.5s ease-in-out infinite;
 }
 
 @keyframes contentFloat{
+
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
-        transform:translateY(-6px);
-    }
-}
-
-h1{
-    font-size:clamp(34px,10vw,58px);
-    color:white;
-    margin-bottom:20px;
-    text-shadow:
-        0 0 10px #fff,
-        0 0 25px #ff9ad5,
-        0 0 45px #ff4fa3;
-}
-
-h2{
-    font-size:clamp(25px,7vw,42px);
-    color:#fff;
-    margin-bottom:18px;
-    text-shadow:0 0 20px #ff9bd6;
-}
-
-p{
-    color:#fff;
-    font-size:clamp(17px,4.7vw,23px);
-    line-height:1.7;
-    text-shadow:0 2px 12px #000;
-}
-
-/* =========================
-   TAP BUTTON
-========================= */
-
-.tap{
-    position:absolute;
-    bottom:35px;
-    z-index:20;
-    color:#ffffffcc;
-    font-family:Arial,sans-serif;
-    font-size:14px;
-    letter-spacing:2px;
-    animation:tapPulse 1.8s ease-in-out infinite;
-}
-
-@keyframes tapPulse{
-    0%,100%{
-        opacity:.45;
-        transform:translateY(0);
-    }
-    50%{
-        opacity:1;
         transform:translateY(-5px);
     }
+
 }
 
-/* =========================
+
+h1{
+
+    font-size:clamp(35px,10vw,58px);
+
+    color:white;
+
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 10px white,
+    0 0 25px #ff9ad5,
+    0 0 45px #ff4fa3;
+
+}
+
+
+h2{
+
+    font-size:clamp(26px,7vw,42px);
+
+    color:white;
+
+    margin-bottom:18px;
+
+    text-shadow:
+    0 0 18px #ff9bd6;
+
+}
+
+
+p{
+
+    color:white;
+
+    font-size:clamp(17px,4.7vw,23px);
+
+    line-height:1.7;
+
+    text-shadow:
+    0 2px 12px rgba(0,0,0,.7);
+
+}
+
+
+/* =================================================
+   TAP BUTTON
+================================================= */
+
+.tap{
+
+    position:absolute;
+
+    bottom:28px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:12px 21px;
+
+    border:1px solid rgba(255,255,255,.28);
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    color:rgba(255,255,255,.95);
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:1.8px;
+
+    white-space:nowrap;
+
+    box-shadow:
+    0 5px 25px rgba(0,0,0,.22),
+    inset 0 0 15px rgba(255,255,255,.05);
+
+    animation:tapGlow 2.2s ease-in-out infinite;
+
+    z-index:100;
+
+    user-select:none;
+
+}
+
+
+.tap::before{
+
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+    0 0 6px white,
+    0 0 14px #ff8fd3,
+    0 0 22px #ff4fae;
+
+    animation:dotPulse 1.5s ease-in-out infinite;
+
+}
+
+
+.tap::after{
+
+    content:"›";
+
+    font-size:18px;
+
+    line-height:10px;
+
+    opacity:.8;
+
+    animation:arrowMove 1.3s ease-in-out infinite;
+
+}
+
+
+@keyframes tapGlow{
+
+    0%,100%{
+        opacity:.72;
+    }
+
+    50%{
+        opacity:1;
+        box-shadow:
+        0 5px 30px rgba(255,105,190,.20),
+        0 0 18px rgba(255,130,210,.12),
+        inset 0 0 18px rgba(255,255,255,.08);
+    }
+
+}
+
+
+@keyframes dotPulse{
+
+    0%,100%{
+        transform:scale(.7);
+        opacity:.55;
+    }
+
+    50%{
+        transform:scale(1.25);
+        opacity:1;
+    }
+
+}
+
+
+@keyframes arrowMove{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    50%{
+        transform:translateX(4px);
+    }
+
+}
+
+
+.tap:active{
+
+    transform:translateX(-50%) scale(.94);
+
+    background:rgba(255,255,255,.18);
+
+}
+
+
+/* =================================================
    BUTTERFLIES
-========================= */
+================================================= */
 
 .butterfly{
+
     position:absolute;
+
     z-index:5;
+
     font-size:38px;
+
     pointer-events:none;
+
     filter:
-        drop-shadow(0 0 8px #ff8bd7)
-        drop-shadow(0 0 18px #ff4fb3);
+    drop-shadow(0 0 8px #ff8bd7)
+    drop-shadow(0 0 18px #ff4fb3);
+
 }
 
-/* Natural flying movement */
 
 .b1{
-    left:-60px;
+
+    left:-70px;
     top:20%;
+
     animation:fly1 12s linear infinite;
+
 }
+
 
 .b2{
+
     left:-70px;
-    top:65%;
+    top:63%;
+
     font-size:30px;
+
     animation:fly2 15s linear infinite;
+
     animation-delay:3s;
+
 }
+
 
 .b3{
-    left:-60px;
+
+    left:-70px;
     top:45%;
+
     font-size:25px;
+
     animation:fly3 18s linear infinite;
+
     animation-delay:6s;
+
 }
 
+
 @keyframes fly1{
+
     0%{
-        transform:translate(-80px,30px) rotate(-10deg);
+        transform:translate(-80px,20px) rotate(-8deg);
     }
 
     20%{
@@ -295,29 +468,32 @@ p{
     }
 
     40%{
-        transform:translate(42vw,40px) rotate(-5deg);
+        transform:translate(42vw,35px) rotate(-5deg);
     }
 
     60%{
-        transform:translate(65vw,-45px) rotate(10deg);
+        transform:translate(65vw,-35px) rotate(8deg);
     }
 
     80%{
-        transform:translate(85vw,25px) rotate(-8deg);
+        transform:translate(85vw,20px) rotate(-6deg);
     }
 
     100%{
         transform:translate(115vw,-20px) rotate(5deg);
     }
+
 }
 
+
 @keyframes fly2{
+
     0%{
-        transform:translate(-80px,20px) rotate(8deg);
+        transform:translate(-80px,20px) rotate(7deg);
     }
 
     25%{
-        transform:translate(25vw,-50px) rotate(-8deg);
+        transform:translate(25vw,-40px) rotate(-8deg);
     }
 
     50%{
@@ -325,54 +501,109 @@ p{
     }
 
     75%{
-        transform:translate(78vw,-40px) rotate(-5deg);
+        transform:translate(78vw,-35px) rotate(-5deg);
     }
 
     100%{
-        transform:translate(115vw,20px) rotate(8deg);
+        transform:translate(115vw,20px) rotate(7deg);
     }
+
 }
 
+
 @keyframes fly3{
+
     0%{
         transform:translate(-80px,0) rotate(-5deg);
     }
 
     30%{
-        transform:translate(30vw,45px) rotate(8deg);
+        transform:translate(30vw,40px) rotate(7deg);
     }
 
     60%{
-        transform:translate(62vw,-35px) rotate(-8deg);
+        transform:translate(62vw,-30px) rotate(-7deg);
     }
 
     100%{
-        transform:translate(115vw,25px) rotate(5deg);
+        transform:translate(115vw,20px) rotate(5deg);
     }
+
 }
 
-/* =========================
-   WING FLAP
-========================= */
 
-.butterfly{
-    animation-timing-function:linear;
+/* =================================================
+   SPARKLES
+================================================= */
+
+.sparkle{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+    0 0 7px white,
+    0 0 15px #ffb7e5;
+
+    animation:sparkle 2.5s ease-in-out infinite;
+
 }
 
-/* =========================
+
+.s1{left:15%;top:18%;}
+.s2{left:75%;top:22%;animation-delay:1s;}
+.s3{left:30%;top:70%;animation-delay:1.5s;}
+.s4{left:85%;top:65%;animation-delay:.7s;}
+.s5{left:55%;top:15%;animation-delay:1.8s;}
+.s6{left:12%;top:48%;animation-delay:2.1s;}
+
+
+@keyframes sparkle{
+
+    0%,100%{
+        opacity:.15;
+        transform:scale(.5);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.8);
+    }
+
+}
+
+
+/* =================================================
    HEARTS
-========================= */
+================================================= */
 
 .heart{
+
     position:absolute;
+
     bottom:-30px;
+
     color:#ff8acb;
+
     font-size:20px;
+
     opacity:.7;
+
     pointer-events:none;
+
     animation:heartFloat linear infinite;
-    text-shadow:0 0 12px #ff5cb7;
+
+    text-shadow:
+    0 0 12px #ff5cb7;
+
 }
+
 
 .h1{left:10%;animation-duration:8s;}
 .h2{left:28%;animation-duration:11s;animation-delay:2s;}
@@ -380,7 +611,9 @@ p{
 .h4{left:76%;animation-duration:12s;animation-delay:1s;}
 .h5{left:90%;animation-duration:10s;animation-delay:5s;}
 
+
 @keyframes heartFloat{
+
     0%{
         transform:translateY(0) scale(.7);
         opacity:0;
@@ -398,497 +631,558 @@ p{
         transform:translateY(-110vh) translateX(-25px) scale(1.2);
         opacity:0;
     }
+
 }
 
-/* =========================
-   SPARKLES
-========================= */
 
-.sparkle{
-    position:absolute;
-    width:4px;
-    height:4px;
-    border-radius:50%;
-    background:white;
-    box-shadow:
-        0 0 7px white,
-        0 0 15px #ffb7e5;
-    animation:sparkle 2.5s ease-in-out infinite;
-    pointer-events:none;
-}
-
-.s1{left:15%;top:18%;animation-delay:.2s;}
-.s2{left:75%;top:22%;animation-delay:1s;}
-.s3{left:30%;top:70%;animation-delay:1.5s;}
-.s4{left:85%;top:65%;animation-delay:.7s;}
-.s5{left:55%;top:15%;animation-delay:1.8s;}
-.s6{left:12%;top:48%;animation-delay:2.1s;}
-
-@keyframes sparkle{
-    0%,100%{
-        opacity:.15;
-        transform:scale(.5);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.8);
-    }
-}
-
-/* =========================
-   GLOW ORB
-========================= */
+/* =================================================
+   GLOW
+================================================= */
 
 .orb{
+
     position:absolute;
+
     width:180px;
     height:180px;
+
     border-radius:50%;
-    background:radial-gradient(circle,#ffffff33,transparent 65%);
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,255,255,.18),
+        transparent 65%
+    );
+
     filter:blur(5px);
+
     animation:orbMove 7s ease-in-out infinite;
-    pointer-events:none;
+
 }
 
+
 @keyframes orbMove{
+
     0%,100%{
         transform:translate(-20px,-10px) scale(1);
     }
 
     50%{
-        transform:translate(20px,20px) scale(1.2);
+        transform:translate(20px,20px) scale(1.15);
     }
+
 }
 
-/* =========================
+
+/* =================================================
    FINAL
-========================= */
+================================================= */
 
 .final-heart{
+
     font-size:70px;
-    animation:heartBeat 1.4s ease-in-out infinite;
+
     margin-bottom:15px;
+
+    animation:heartBeat 1.4s ease-in-out infinite;
+
 }
+
 
 @keyframes heartBeat{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.18);}
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.16);
+    }
+
 }
 
+
 .signature{
+
     margin-top:22px;
+
     font-size:20px;
+
     color:#ffd4eb;
+
     letter-spacing:3px;
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div id="app">
 
-<!-- ================= PAGE 1 ================= -->
+
+<!-- =================================================
+     PAGE 1
+================================================= -->
 
 <section class="page p1 active">
 
-    <div class="orb"></div>
+<div class="orb"></div>
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b2">🦋</div>
-    <div class="butterfly b3">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b2">🦋</div>
+<div class="butterfly b3">🦋</div>
 
-    <div class="sparkle s1"></div>
-    <div class="sparkle s2"></div>
-    <div class="sparkle s3"></div>
-    <div class="sparkle s4"></div>
-    <div class="sparkle s5"></div>
-    <div class="sparkle s6"></div>
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s4"></div>
+<div class="sparkle s5"></div>
 
-    <div class="heart h1">♥</div>
-    <div class="heart h2">♥</div>
-    <div class="heart h3">♥</div>
-    <div class="heart h4">♥</div>
-    <div class="heart h5">♥</div>
+<div class="heart h1">♥</div>
+<div class="heart h2">♥</div>
+<div class="heart h3">♥</div>
+<div class="heart h4">♥</div>
+<div class="heart h5">♥</div>
 
-    <div class="content">
-        <h1>Hey Pari 🦋</h1>
-        <p>
-            Kuch log life mein<br>
-            bina kisi planning ke aate hain...
-            <br><br>
-            aur phir pata hi nahi chalta<br>
-            kab woh itne special ban gaye ❤️
-        </p>
-    </div>
+<div class="content">
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<h1>Hey Pari 🦋</h1>
+
+<p>
+Kuch log life mein<br>
+bina kisi planning ke aate hain...
+<br><br>
+aur phir pata hi nahi chalta<br>
+kab woh itne special ban gaye ❤️
+</p>
+
+</div>
+
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 2 ================= -->
+<!-- =================================================
+     PAGE 2
+================================================= -->
 
 <section class="page p2">
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b2">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b2">🦋</div>
 
-    <div class="sparkle s1"></div>
-    <div class="sparkle s3"></div>
-    <div class="sparkle s5"></div>
+<div class="sparkle s1"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s5"></div>
 
-    <div class="content">
-        <h2>Friendship ki beginning 🌅</h2>
+<div class="content">
 
-        <p>
-            Pata nahi woh kaunsa moment tha...
-            <br><br>
-            jab normal si baat-cheet
-            ek beautiful friendship ban gayi.
-            <br><br>
-            Aur honestly...
-            mujhe woh beginning yaad hai ❤️
-        </p>
-    </div>
+<h2>Friendship ki beginning 🌅</h2>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<p>
+Pata nahi woh kaunsa moment tha...
+<br><br>
+jab normal si baat-cheet
+ek beautiful friendship ban gayi.
+<br><br>
+Aur honestly...
+mujhe woh beginning yaad hai ❤️
+</p>
+
+</div>
+
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 3 ================= -->
+<!-- =================================================
+     PAGE 3
+================================================= -->
 
 <section class="page p3">
 
-    <div class="orb"></div>
+<div class="orb"></div>
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b3">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b3">🦋</div>
 
-    <div class="sparkle s1"></div>
-    <div class="sparkle s2"></div>
-    <div class="sparkle s4"></div>
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s4"></div>
 
-    <div class="content">
-        <h2>Tumse baat karna... 💡</h2>
+<div class="content">
 
-        <p>
-            Kabhi kabhi din kitna bhi boring ho,
-            <br>
-            tumse baat ho jaaye...
-            <br><br>
-            toh mood automatically
-            thoda better ho jata hai. ✨
-        </p>
-    </div>
+<h2>Tumse baat karna... 💡</h2>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<p>
+Kabhi kabhi din kitna bhi boring ho,
+<br><br>
+tumse baat ho jaaye...
+<br><br>
+toh mood automatically
+thoda better ho jata hai. ✨
+</p>
+
+</div>
+
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 4 ================= -->
+<!-- =================================================
+     PAGE 4
+================================================= -->
 
 <section class="page p4">
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b2">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b2">🦋</div>
 
-    <div class="sparkle s2"></div>
-    <div class="sparkle s4"></div>
-    <div class="sparkle s6"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s4"></div>
+<div class="sparkle s6"></div>
 
-    <div class="content">
-        <h2>Mood off wali baat ⭐</h2>
+<div class="content">
 
-        <p>
-            Jab mood off hota hai na...
-            <br><br>
-            tab kuch logon se baat karne ka
-            mann automatically karta hai.
-            <br><br>
-            Tum unhi logon mein se ho. 🦋
-        </p>
-    </div>
+<h2>Mood off wali baat ⭐</h2>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<p>
+Jab mood off hota hai na...
+<br><br>
+tab kuch logon se baat karne ka
+mann automatically karta hai.
+<br><br>
+Tum unhi logon mein se ho. 🦋
+</p>
+
+</div>
+
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 5 ================= -->
+<!-- =================================================
+     PAGE 5
+================================================= -->
 
 <section class="page p5">
 
-    <div class="orb"></div>
+<div class="orb"></div>
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b2">🦋</div>
-    <div class="butterfly b3">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b2">🦋</div>
+<div class="butterfly b3">🦋</div>
 
-    <div class="sparkle s1"></div>
-    <div class="sparkle s3"></div>
-    <div class="sparkle s5"></div>
+<div class="sparkle s1"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s5"></div>
 
-    <div class="content">
-        <h1>Pari 🦋</h1>
+<div class="content">
 
-        <p>
-            Naam chhota sa hai...
-            <br><br>
-            par meri friendship story mein
-            iska meaning kaafi bada hai. 🌸
-        </p>
-    </div>
+<h1>Pari 🦋</h1>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<p>
+Naam chhota sa hai...
+<br><br>
+par meri friendship story mein
+iska meaning kaafi bada hai. 🌸
+</p>
+
+</div>
+
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 6 ================= -->
+<!-- =================================================
+     PAGE 6
+================================================= -->
 
 <section class="page p6">
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b3">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b3">🦋</div>
 
-    <div class="sparkle s1"></div>
-    <div class="sparkle s2"></div>
-    <div class="sparkle s5"></div>
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s5"></div>
 
-    <div class="content">
+<div class="content">
 
-        <h2>Our Friendship 📸</h2>
+<h2>Our Friendship 📸</h2>
 
-        <p>
-            Photos kam ho sakti hain...
-            <br><br>
-            lekin memories?
-            <br>
-            woh toh bahut saari hain. ❤️
-            <br><br>
-            Chhoti-chhoti baatein,
-            random conversations,
-            aur woh silly moments...
-        </p>
+<p>
+Photos kam ho sakti hain...
+<br><br>
+lekin memories?
+<br>
+woh toh bahut saari hain. ❤️
+<br><br>
+Chhoti-chhoti baatein,
+random conversations,
+aur woh silly moments...
+</p>
 
-    </div>
+</div>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 7 ================= -->
+<!-- =================================================
+     PAGE 7
+================================================= -->
 
 <section class="page p7">
 
-    <div class="orb"></div>
+<div class="orb"></div>
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b2">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b2">🦋</div>
 
-    <div class="sparkle s1"></div>
-    <div class="sparkle s4"></div>
-    <div class="sparkle s6"></div>
+<div class="sparkle s1"></div>
+<div class="sparkle s4"></div>
+<div class="sparkle s6"></div>
 
-    <div class="content">
+<div class="content">
 
-        <h2>Thank You Pari 💌</h2>
+<h2>Thank You Pari 💌</h2>
 
-        <p>
-            Thank you...
-            <br><br>
-            meri life mein ek achhi friend
-            banke aane ke liye.
-            <br><br>
-            Thank you for every smile,
-            every conversation
-            aur har little moment ke liye. ❤️
-        </p>
+<p>
+Thank you...
+<br><br>
+meri life mein ek achhi friend
+banke aane ke liye.
+<br><br>
+Thank you for every smile,
+every conversation
+aur har little moment ke liye. ❤️
+</p>
 
-    </div>
+</div>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 8 ================= -->
+<!-- =================================================
+     PAGE 8
+================================================= -->
 
 <section class="page p8">
 
-    <div class="orb"></div>
+<div class="orb"></div>
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b3">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b3">🦋</div>
 
-    <div class="sparkle s2"></div>
-    <div class="sparkle s3"></div>
-    <div class="sparkle s5"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s5"></div>
 
-    <div class="content">
+<div class="content">
 
-        <div style="font-size:75px;margin-bottom:15px;">🫙</div>
+<div style="font-size:75px;margin-bottom:15px;">
+🫙
+</div>
 
-        <h2>Thank You Jar 🦋</h2>
+<h2>Thank You Jar 🦋</h2>
 
-        <p>
-            Agar har thank you ko
-            ek jar mein collect karun...
-            <br><br>
-            toh shayad ye jar bhi
-            chhota pad jaaye. ✨
-        </p>
+<p>
+Agar har thank you ko
+ek jar mein collect karun...
+<br><br>
+toh shayad ye jar bhi
+chhota pad jaaye. ✨
+</p>
 
-    </div>
+</div>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 9 ================= -->
+<!-- =================================================
+     PAGE 9
+================================================= -->
 
 <section class="page p9">
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b2">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b2">🦋</div>
 
-    <div class="sparkle s1"></div>
-    <div class="sparkle s3"></div>
-    <div class="sparkle s6"></div>
+<div class="sparkle s1"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s6"></div>
 
-    <div class="content">
+<div class="content">
 
-        <h2>Hamesha Khush Rehna 🌄</h2>
+<h2>Hamesha Khush Rehna 🌄</h2>
 
-        <p>
-            Life mein chahe kuch bhi ho...
-            <br><br>
-            bas tum hamesha smile karti rehna.
-            <br><br>
-            Tumhari smile genuinely
-            bahut beautiful hai. ❤️
-        </p>
+<p>
+Life mein chahe kuch bhi ho...
+<br><br>
+bas tum hamesha smile karti rehna.
+<br><br>
+Tumhari smile genuinely
+bahut beautiful hai. ❤️
+</p>
 
-    </div>
+</div>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 10 ================= -->
+<!-- =================================================
+     PAGE 10
+================================================= -->
 
 <section class="page p10">
 
-    <div class="orb"></div>
+<div class="orb"></div>
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b3">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b3">🦋</div>
 
-    <div class="sparkle s2"></div>
-    <div class="sparkle s4"></div>
-    <div class="sparkle s5"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s4"></div>
+<div class="sparkle s5"></div>
 
-    <div class="content">
+<div class="content">
 
-        <h2>Pari... 📝</h2>
+<h2>Pari... 📝</h2>
 
-        <p>
-            Shayad main har baar
-            perfect words nahi bol pata...
-            <br><br>
-            lekin ek baat genuinely keh sakta hoon:
-            <br><br>
-            tumhari friendship mere liye
-            important hai. ❤️
-        </p>
+<p>
+Shayad main har baar
+perfect words nahi bol pata...
+<br><br>
+lekin ek baat genuinely keh sakta hoon:
+<br><br>
+tumhari friendship mere liye
+important hai. ❤️
+</p>
 
-    </div>
+</div>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 11 ================= -->
+<!-- =================================================
+     PAGE 11
+================================================= -->
 
 <section class="page p11">
 
-    <div class="orb"></div>
+<div class="orb"></div>
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b2">🦋</div>
-    <div class="butterfly b3">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b2">🦋</div>
+<div class="butterfly b3">🦋</div>
 
-    <div class="sparkle s1"></div>
-    <div class="sparkle s2"></div>
-    <div class="sparkle s4"></div>
-    <div class="sparkle s6"></div>
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s4"></div>
+<div class="sparkle s6"></div>
 
-    <div class="content">
+<div class="content">
 
-        <div class="final-heart">💖</div>
+<div class="final-heart">💖</div>
 
-        <h2>
-            Tu unhi friendships
-            mein se hai...
-        </h2>
+<h2>
+Tu unhi friendships
+mein se hai...
+</h2>
 
-        <p>
-            jo life mein baar-baar nahi milti.
-            <br><br>
-            Isliye...
-            <br>
-            always stay the same. 🦋
-        </p>
+<p>
+jo life mein baar-baar nahi milti.
+<br><br>
+Isliye...
+<br>
+always stay the same. 🦋
+</p>
 
-    </div>
+</div>
 
-    <div class="tap">TAP TO CONTINUE ✨</div>
+<div class="tap">TAP TO CONTINUE</div>
+
 </section>
 
 
-<!-- ================= PAGE 12 ================= -->
+<!-- =================================================
+     PAGE 12
+================================================= -->
 
 <section class="page p12">
 
-    <div class="orb"></div>
+<div class="orb"></div>
 
-    <div class="butterfly b1">🦋</div>
-    <div class="butterfly b2">🦋</div>
-    <div class="butterfly b3">🦋</div>
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b2">🦋</div>
+<div class="butterfly b3">🦋</div>
 
-    <div class="sparkle s1"></div>
-    <div class="sparkle s2"></div>
-    <div class="sparkle s3"></div>
-    <div class="sparkle s4"></div>
-    <div class="sparkle s5"></div>
-    <div class="sparkle s6"></div>
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s4"></div>
+<div class="sparkle s5"></div>
+<div class="sparkle s6"></div>
 
-    <div class="content">
+<div class="content">
 
-        <div class="final-heart">💖</div>
+<div class="final-heart">
+💖
+</div>
 
-        <h1>Thank You Pari 🌸</h1>
+<h1>
+Thank You Pari 🌸
+</h1>
 
-        <p>
-            For being a beautiful part
-            of my life...
-            <br><br>
-            Stay happy.<br>
-            Stay smiling.<br>
-            Always. 🦋✨
-        </p>
+<p>
+For being a beautiful part
+of my life...
+<br><br>
+Stay happy.<br>
+Stay smiling.<br>
+Always. 🦋✨
+</p>
 
-        <div class="signature">
-            — Ronak ❤️
-        </div>
+<div class="signature">
+— Ronak ❤️
+</div>
 
-    </div>
+</div>
 
-    <div class="tap">THE END ✨</div>
+<div class="tap">
+THE END ✨
+</div>
+
 </section>
+
 
 </div>
 
 
 <script>
+
+/* =================================================
+   PAGE SYSTEM
+================================================= */
 
 const pages = document.querySelectorAll(".page");
 
@@ -896,9 +1190,9 @@ let currentPage = 0;
 let isAnimating = false;
 
 
-/* =========================
+/* =================================================
    NEXT PAGE
-========================= */
+================================================= */
 
 function nextPage(){
 
@@ -910,15 +1204,12 @@ function nextPage(){
 
     const current = pages[currentPage];
 
-    /* OLD PAGE OUT */
-
     current.classList.remove("active");
+
     current.classList.add("leaving");
 
 
-    /* Wait for outgoing animation */
-
-    setTimeout(() => {
+    setTimeout(()=>{
 
         current.classList.remove("leaving");
 
@@ -928,45 +1219,77 @@ function nextPage(){
 
         next.classList.add("active");
 
-        /* unlock */
 
-        setTimeout(() => {
+        setTimeout(()=>{
+
             isAnimating = false;
-        },1150);
 
-    },750);
+        },550);
+
+    },450);
+
 }
 
 
-/* =========================
-   TAP / CLICK
-========================= */
+/* =================================================
+   TAP ANYWHERE
+================================================= */
 
-document.addEventListener("click", nextPage);
+document.addEventListener("click",(event)=>{
+
+    /*
+       Don't trigger twice if user taps
+       very quickly.
+    */
+
+    if(event.target.closest(".tap")){
+        nextPage();
+        return;
+    }
+
+    /*
+       Allow screen tap too.
+    */
+
+    nextPage();
+
+});
 
 
-/* =========================
-   SWIPE
-========================= */
+/* =================================================
+   SWIPE UP
+================================================= */
 
 let startY = 0;
 
-document.addEventListener("touchstart",(e)=>{
+document.addEventListener(
+"touchstart",
+(e)=>{
+
     startY = e.touches[0].clientY;
-},{passive:true});
+
+},
+{passive:true}
+);
 
 
-document.addEventListener("touchend",(e)=>{
+document.addEventListener(
+"touchend",
+(e)=>{
 
     const endY = e.changedTouches[0].clientY;
 
     const distance = startY - endY;
 
     if(distance > 60){
+
         nextPage();
+
     }
 
-},{passive:true});
+},
+{passive:true}
+);
 
 </script>
 
