@@ -1,1 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+<title>For Pari 🦋</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    background:#080014;
+    color:white;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100dvh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:25px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:scale(1.08);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+    overflow:hidden;
+}
+
+
+.page.active{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:scale(1);
+
+}
+
+
+.content{
+
+    width:100%;
+    max-width:390px;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:20;
+
+    animation:contentIn 1s ease;
+
+}
+
+
+@keyframes contentIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   BACKGROUNDS
+========================= */
+
+.bg1{
+
+    background:
+
+    radial-gradient(
+        circle at 50% 20%,
+        rgba(255,70,180,.35),
+        transparent 35%
+    ),
+
+    linear-gradient(
+        160deg,
+        #080014,
+        #18002e,
+        #06000d
+    );
+
+}
+
+
+.bg2{
+
+    background:
+
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(90,150,255,.35),
+        transparent 35%
+    ),
+
+    linear-gradient(
+        160deg,
+        #09001c,
+        #201052,
+        #05000e
+    );
+
+}
+
+
+.bg3{
+
+    background:
+
+    radial-gradient(
+        circle at 80% 20%,
+        rgba(255,120,190,.35),
+        transparent 35%
+    ),
+
+    linear-gradient(
+        160deg,
+        #170018,
+        #40114c,
+        #09000f
+    );
+
+}
+
+
+.bg4{
+
+    background:
+
+    radial-gradient(
+        circle at 50% 80%,
+        rgba(255,190,100,.3),
+        transparent 35%
+    ),
+
+    linear-gradient(
+        160deg,
+        #050b20,
+        #161347,
+        #05000c
+    );
+
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+h1{
+
+    font-size:
+        clamp(48px,15vw,72px);
+
+    margin-bottom:18px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    color:#fff;
+
+    text-shadow:
+
+        0 0 10px #ff4db8,
+        0 0 30px #ff199d;
+
+}
+
+
+h2{
+
+    font-size:
+        clamp(30px,9vw,46px);
+
+    margin-bottom:22px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    color:#ffd6ef;
+
+    text-shadow:
+        0 0 18px rgba(255,80,180,.8);
+
+}
+
+
+p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#f9eafa;
+
+}
+
+
+.highlight{
+
+    color:#ff8ed0;
+
+    font-weight:bold;
+
+    text-shadow:
+        0 0 12px rgba(255,60,180,.7);
+
+}
+
+
+/* =========================
+   BUTTERFLY
+========================= */
+
+.butterfly{
+
+    position:fixed;
+
+    z-index:5;
+
+    font-size:32px;
+
+    pointer-events:none;
+
+    filter:
+        drop-shadow(0 0 8px #ff66cc)
+        drop-shadow(0 0 18px #a855f7);
+
+    animation:
+        butterflyFly
+        var(--duration)
+        linear
+        infinite;
+
+}
+
+
+@keyframes butterflyFly{
+
+    0%{
+
+        transform:
+            translate(
+                var(--x1),
+                110vh
+            )
+            rotate(-10deg)
+            scale(.7);
+
+        opacity:0;
+
+    }
+
+
+    10%{
+
+        opacity:1;
+
+    }
+
+
+    25%{
+
+        transform:
+            translate(
+                var(--x2),
+                75vh
+            )
+            rotate(15deg)
+            scale(1);
+
+    }
+
+
+    50%{
+
+        transform:
+            translate(
+                var(--x3),
+                45vh
+            )
+            rotate(-15deg)
+            scale(.9);
+
+    }
+
+
+    75%{
+
+        transform:
+            translate(
+                var(--x4),
+                18vh
+            )
+            rotate(12deg)
+            scale(1.05);
+
+    }
+
+
+    100%{
+
+        transform:
+            translate(
+                var(--x5),
+                -15vh
+            )
+            rotate(-15deg)
+            scale(.7);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.star{
+
+    position:fixed;
+
+    z-index:2;
+
+    color:white;
+
+    pointer-events:none;
+
+    animation:
+        twinkle
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes twinkle{
+
+    0%,100%{
+
+        opacity:.2;
+        transform:scale(.7);
+
+    }
+
+    50%{
+
+        opacity:1;
+        transform:scale(1.4);
+
+    }
+
+}
+
+
+/* =========================
+   FLOAT HEART
+========================= */
+
+.heartFloat{
+
+    position:fixed;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    font-size:22px;
+
+    animation:
+        heartUp
+        6s
+        linear
+        forwards;
+
+}
+
+
+@keyframes heartUp{
+
+    0%{
+
+        transform:
+            translateY(0)
+            scale(.6);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:.8;
+
+    }
+
+    100%{
+
+        transform:
+            translateY(-110vh)
+            scale(1.2)
+            rotate(25deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================
+   MAIN ICON
+========================= */
+
+.bigIcon{
+
+    font-size:78px;
+
+    margin-bottom:20px;
+
+    animation:
+        floatIcon
+        2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes floatIcon{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+
+    border:none;
+
+    margin-top:32px;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3d9a,
+            #9b4dff
+        );
+
+    box-shadow:
+
+        0 0 15px rgba(255,70,180,.5),
+        0 0 35px rgba(140,70,255,.3);
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.btn:active{
+
+    transform:scale(.92);
+
+}
+
+
+/* =========================
+   FRIENDSHIP CARD
+========================= */
+
+.card{
+
+    padding:25px 20px;
+
+    border-radius:25px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.35);
+
+}
+
+
+.cardLine{
+
+    margin:15px 0;
+
+    font-size:18px;
+
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+
+    position:fixed;
+
+    top:13px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:75%;
+
+    max-width:350px;
+
+    height:4px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.15);
+
+    z-index:100;
+
+}
+
+
+.progressBar{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4fa8,
+            #9d6cff
+        );
+
+    transition:.7s;
+
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.finalTitle{
+
+    font-size:42px;
+
+    color:#ffb5e4;
+
+}
+
+
+.finalText{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+}
+
+
+.signature{
+
+    margin-top:28px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:28px;
+
+    color:#ff9bd8;
+
+    text-shadow:
+        0 0 15px #ff39a8;
+
+}
+
+
+.small{
+
+    margin-top:15px;
+
+    font-size:13px;
+
+    opacity:.6;
+
+}
+
+
+/* =========================
+   TAP EFFECT
+========================= */
+
+.tapCircle{
+
+    position:fixed;
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#ff74c7;
+
+    pointer-events:none;
+
+    z-index:200;
+
+    animation:
+        tapPop
+        .6s
+        ease-out
+        forwards;
+
+}
+
+
+@keyframes tapPop{
+
+    from{
+
+        transform:scale(1);
+
+        opacity:.9;
+
+    }
+
+    to{
+
+        transform:scale(12);
+
+        opacity:0;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- PROGRESS -->
+
+<div class="progress">
+
+    <div
+        class="progressBar"
+        id="progressBar">
+    </div>
+
+</div>
+
+
+
+<!-- PAGE 1 -->
+
+<section class="page bg1 active">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            🦋
+        </div>
+
+        <h1>
+            Hey Pari
+        </h1>
+
+        <p>
+            🦋✨
+            <br><br>
+
+            Ye koi normal message nahi hai.
+            <br>
+
+            Ek chhoti si surprise hai
+            <br>
+
+            ek special friend ke liye... 🤍
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Tap to Open 🦋
+
+        </button>
+
+        <div class="small">
+            Something special is waiting...
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 2 -->
+
+<section class="page bg2">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            🌸
+        </div>
+
+        <h2>
+            Pari 🦋
+        </h2>
+
+        <p>
+
+            Pata nahi kab tum
+            <br>
+
+            ek normal friend se
+            <br>
+
+            itni achhi friend ban gayi.
+            <br><br>
+
+            Bas pata hi nahi chala... 🥹🤍
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Next 🦋
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 3 -->
+
+<section class="page bg3">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            😂
+        </div>
+
+        <h2>
+            Our Bakwaas 🤣
+        </h2>
+
+        <div class="card">
+
+            <div class="cardLine">
+                😭 Random baatein
+            </div>
+
+            <div class="cardLine">
+                😂 Bekaar jokes
+            </div>
+
+            <div class="cardLine">
+                🤪 Thodi si pagalpan
+            </div>
+
+            <div class="cardLine">
+                🫶 Aur bahut saari memories
+            </div>
+
+        </div>
+
+        <p style="margin-top:18px">
+
+            Tumse baat karna ho
+            <br>
+
+            masti karna ho
+            <br>
+
+            ya bas random bakwaas karni ho...
+            <br><br>
+
+            <span class="highlight">
+                Har baar accha lagta hai. ❤️
+            </span>
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Continue ✨
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 4 -->
+
+<section class="page bg4">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            🥺
+        </div>
+
+        <h2>
+            Ek Chhoti Si Baat...
+        </h2>
+
+        <p>
+
+            Kabhi mood off ho
+            <br>
+
+            to tumse baat karke
+            <br>
+
+            thoda better feel hota hai.
+            <br><br>
+
+            Kabhi ek chhoti si conversation
+            <br>
+
+            bhi mood change kar deti hai. 🤍
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Next 🦋
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 5 -->
+
+<section class="page bg3">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            🦋
+        </div>
+
+        <h2>
+            Friendship 🤍
+        </h2>
+
+        <p>
+
+            Har friendship perfect nahi hoti...
+            <br><br>
+
+            Lekin kuch friends
+            <br>
+
+            apne aap mein
+            <br>
+
+            <span class="highlight">
+                bahut special hote hain.
+            </span>
+
+            <br><br>
+
+            Aur tum unhi mein se ek ho. 🥹❤️
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Next 🦋
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 6 -->
+
+<section class="page bg2">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            🤪
+        </div>
+
+        <h2>
+            Our Friendship 😂
+        </h2>
+
+        <div class="card">
+
+            <div class="cardLine">
+                😌 Thodi si pagal
+            </div>
+
+            <div class="cardLine">
+                😂 Thodi si annoying
+            </div>
+
+            <div class="cardLine">
+                🥹 Thodi si cute
+            </div>
+
+            <div class="cardLine">
+                🤣 Aur bahut saari bakwaas
+            </div>
+
+        </div>
+
+        <p style="margin-top:20px">
+
+            Lekin ek baat pakki hai...
+
+            <br><br>
+
+            <span class="highlight">
+                Friendship mast hai! 🫶🦋
+            </span>
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Next ✨
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 7 -->
+
+<section class="page bg1">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            💌
+        </div>
+
+        <h2>
+            Thank You Pari...
+        </h2>
+
+        <div class="card">
+
+            <p>
+
+                💬 Thank you mujhe sunne ke liye.
+
+                <br><br>
+
+                😂 Thank you meri bakwaas
+                tolerate karne ke liye.
+
+                <br><br>
+
+                🫶 Thank you har chhoti badi
+                baat mein friend ban kar rehne ke liye.
+
+            </p>
+
+        </div>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Continue 🦋
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 8 -->
+
+<section class="page bg4">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            ✨
+        </div>
+
+        <h2>
+            One More Thing...
+        </h2>
+
+        <p>
+
+            Thank you meri life ka
+            <br>
+
+            ek beautiful part
+            <br>
+
+            banne ke liye. 🥹🤍
+
+            <br><br>
+
+            Kuch log life mein
+            <br>
+
+            randomly aate hain...
+            <br>
+
+            aur phir special ban jaate hain. 🦋
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Next ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 9 -->
+
+<section class="page bg2">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            🌈
+        </div>
+
+        <h2>
+            Hamesha Khush Rehna 🦋
+        </h2>
+
+        <p>
+
+            Pari...
+
+            <br><br>
+
+            Life mein chahe kitne bhi
+            <br>
+
+            ups and downs aayein...
+
+            <br><br>
+
+            Bas apni smile kabhi mat khona. 😊❤️
+
+            <br><br>
+
+            Apne dreams pure karna
+            <br>
+
+            aur hamesha successful hona. ⭐
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Next 🦋
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 10 -->
+
+<section class="page bg3">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            🥹🦋
+        </div>
+
+        <h2>
+            Pari...
+        </h2>
+
+        <p>
+
+            Ho sakta hai main har baar
+            <br>
+
+            bolta nahi hoon...
+
+            <br><br>
+
+            Lekin tu ek
+            <br>
+
+            <span class="highlight">
+                bahut achhi friend hai. ❤️
+            </span>
+
+            <br><br>
+
+            Aur main genuinely
+            <br>
+
+            teri friendship ko
+            <br>
+
+            appreciate karta hoon. 🫶
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Almost There 🦋
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGE 11 -->
+
+<section class="page bg1">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            💖
+        </div>
+
+        <h2>
+            Remember This 🦋
+        </h2>
+
+        <p>
+
+            Daily baat karna zaroori nahi hota...
+
+            <br><br>
+
+            Kuch friendships
+            <br>
+
+            bas dil mein
+            <br>
+
+            ek special jagah hone se
+            <br>
+
+            important hoti hain. 🤍
+
+            <br><br>
+
+            <span class="highlight">
+                Tu unhi friendships mein se hai. 🦋
+            </span>
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
+            Last Page ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- FINAL PAGE -->
+
+<section class="page bg3">
+
+    <div class="content">
+
+        <div class="bigIcon">
+            🦋
+        </div>
+
+        <h2 class="finalTitle">
+
+            Thank You
+            <br>
+            For Being My Friend
+
+        </h2>
+
+        <p class="finalText">
+
+            Pari 🦋
+
+            <br><br>
+
+            Stay Happy 😊
+            <br>
+
+            Stay Crazy 🤪
+            <br>
+
+            Stay Awesome ✨
+            <br>
+
+            And Always Keep Smiling 🌸
+
+            <br><br>
+
+            Hamari friendship
+            <br>
+
+            hamesha special rahegi. 🤍🫶
+
+        </p>
+
+        <div class="signature">
+
+            Ronak ❤️
+
+        </div>
+
+        <button
+            class="btn"
+            onclick="restart()">
+
+            Start Again 🦋
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+let currentPage = 0;
+
+const pages =
+    document.querySelectorAll(".page");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+
+function nextPage(){
+
+    if(currentPage < pages.length - 1){
+
+        pages[currentPage]
+            .classList
+            .remove("active");
+
+        currentPage++;
+
+        pages[currentPage]
+            .classList
+            .add("active");
+
+        updateProgress();
+
+    }
+
+}
+
+
+function restart(){
+
+    pages[currentPage]
+        .classList
+        .remove("active");
+
+    currentPage = 0;
+
+    pages[currentPage]
+        .classList
+        .add("active");
+
+    updateProgress();
+
+}
+
+
+function updateProgress(){
+
+    const percent =
+        (currentPage / (pages.length - 1))
+        * 100;
+
+    progressBar.style.width =
+        percent + "%";
+
+}
+
+
+
+/* =========================
+   BUTTERFLIES
+========================= */
+
+const butterflyTypes = [
+    "🦋",
+    "🦋",
+    "🦋",
+    "🦋"
+];
+
+
+function createButterfly(){
+
+    const butterfly =
+        document.createElement("div");
+
+    butterfly.className =
+        "butterfly";
+
+    butterfly.innerHTML =
+        butterflyTypes[
+            Math.floor(
+                Math.random()
+                * butterflyTypes.length
+            )
+        ];
+
+
+    butterfly.style.setProperty(
+        "--x1",
+        Math.random() * 100 + "vw"
+    );
+
+    butterfly.style.setProperty(
+        "--x2",
+        Math.random() * 100 + "vw"
+    );
+
+    butterfly.style.setProperty(
+        "--x3",
+        Math.random() * 100 + "vw"
+    );
+
+    butterfly.style.setProperty(
+        "--x4",
+        Math.random() * 100 + "vw"
+    );
+
+    butterfly.style.setProperty(
+        "--x5",
+        Math.random() * 100 + "vw"
+    );
+
+
+    butterfly.style.setProperty(
+        "--duration",
+        (8 + Math.random() * 7) + "s"
+    );
+
+
+    butterfly.style.fontSize =
+        (22 + Math.random() * 22) + "px";
+
+
+    document.body.appendChild(
+        butterfly
+    );
+
+
+    setTimeout(() => {
+
+        butterfly.remove();
+
+    },16000);
+
+}
+
+
+setInterval(
+    createButterfly,
+    1200
+);
+
+
+/* =========================
+   STARS
+========================= */
+
+function createStar(){
+
+    const star =
+        document.createElement("div");
+
+    star.className =
+        "star";
+
+    star.innerHTML =
+        Math.random() > .5
+        ? "✦"
+        : "✧";
+
+
+    star.style.left =
+        Math.random() * 100 + "vw";
+
+    star.style.top =
+        Math.random() * 100 + "vh";
+
+
+    star.style.fontSize =
+        (8 + Math.random() * 10) + "px";
+
+
+    star.style.animationDelay =
+        Math.random() * 2 + "s";
+
+
+    document.body.appendChild(
+        star
+    );
+
+}
+
+
+for(let i=0;i<35;i++){
+
+    createStar();
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "heartFloat";
+
+    const hearts = [
+        "💗",
+        "💖",
+        "💕",
+        "🤍",
+        "✨"
+    ];
+
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random()
+                * hearts.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.bottom =
+        "-30px";
+
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 4) + "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    },10000);
+
+}
+
+
+setInterval(
+    createHeart,
+    900
+);
+
+
+/* =========================
+   TAP EFFECT
+========================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const circle =
+            document.createElement("div");
+
+        circle.className =
+            "tapCircle";
+
+        circle.style.left =
+            event.clientX - 5 + "px";
+
+        circle.style.top =
+            event.clientY - 5 + "px";
+
+
+        document.body.appendChild(
+            circle
+        );
+
+
+        setTimeout(() => {
+
+            circle.remove();
+
+        },700);
+
+    }
+);
+
+
+/* =========================
+   START BUTTERFLIES
+========================= */
+
+for(let i=0;i<5;i++){
+
+    setTimeout(
+        createButterfly,
+        i * 800
+    );
+
+}
+
+
+</script>
+
+</body>
+</html>
